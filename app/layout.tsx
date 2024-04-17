@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito_font = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="h-full">
+      <body
+        className={`${GeistSans.variable} ${nunito_font} "font-sans h-full bg-background text-foreground" `}
+      >
+        {children}
+      </body>
     </html>
   );
 }
